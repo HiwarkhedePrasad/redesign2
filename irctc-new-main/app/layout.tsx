@@ -20,13 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <Chatbot />
-        <ThemeProvider />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <Chatbot />
+        </ThemeProvider>
       </body>
     </html>
   )
